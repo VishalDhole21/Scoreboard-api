@@ -24,11 +24,8 @@ app.use(bodyParser.json())
 
 
 app.get('/', (req, res)=>{
-	db.select('*').from('matchtable')
-	.orderBy('matchid', 'desc')
-	.then(data =>{
-	res.send(data);
-});
+	
+	res.send('It is working..!!!');
 })
 
 app.post('/balls', (req, res)=>{
