@@ -59,4 +59,4 @@ db.batchInsert('balltable', rows, chunkSize)
   .returning('ballid')
   .catch(err=>{res.json('unable to create match')});
 })
-app.listen(3000);
+app.listen(env.process.PORT || 3000);
