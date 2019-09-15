@@ -7,10 +7,8 @@ var bodyParser = require('body-parser')
 const db = knex ({
   client: 'pg',
   connection: {
-    host : '127.0.0.1',
-    user : '',
-    password : '',
-    database : 'avcreations'
+    connectionString : process.env.DATABASE_URL, 
+    ssl : true
   }
 });
 
@@ -24,8 +22,11 @@ app.use(bodyParser.json())
 
 
 app.get('/', (req, res)=>{
-	
-	res.send('It is working..!!!');
+	db.select('*').from('matchtable')
+	.orderBy('matchid', 'desc')
+	.then(data =>{
+	res.send(data);
+});
 })
 
 app.post('/balls', (req, res)=>{
