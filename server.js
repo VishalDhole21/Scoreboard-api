@@ -27,7 +27,7 @@ app.get('/', (req, res)=>{
 	
 	res.send('It is working..!!!');
 })
-/*
+
 app.post('/balls', (req, res)=>{
 
 	var {matchid} = req.body;
@@ -56,5 +56,5 @@ db.batchInsert('balltable', rows, chunkSize)
   .returning('ballid')
   .catch(err=>{res.json('unable to create match')});
 })
-*/
+
 app.listen(process.env.PORT || 3000);
